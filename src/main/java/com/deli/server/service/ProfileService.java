@@ -1,15 +1,12 @@
 package com.deli.server.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
 import com.deli.server.model.Friends;
-import com.deli.server.model.Product;
 import com.deli.server.model.User;
 import com.deli.server.model.WishList;
 import com.deli.server.repository.FriendRepository;
@@ -25,11 +22,8 @@ public class ProfileService {
 	private final UserRepository userRepository;
 	private final WishListRepository wishListRepository;
 	private final FriendRepository friendRepository;
-	
-	
-	
+
 	//프로필에 띄울 사용자 가져오기
-	
 	@Transactional
 	public User getUserInfo(int id) {
 		User user = userRepository.findById(id).orElseThrow(()->{
@@ -49,5 +43,4 @@ public class ProfileService {
 		List<WishList> wishList = (List<WishList>) wishListRepository.findByUserId(id);
 		return wishList;
 	}
-
 }

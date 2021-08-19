@@ -48,7 +48,7 @@ public class User {
 	private String image;
 	
 	@Column(nullable = false, length = 100)
-	private boolean gender;
+	private String gender;
 	
 	@Column(nullable = false, length = 100)
 	private String birth;

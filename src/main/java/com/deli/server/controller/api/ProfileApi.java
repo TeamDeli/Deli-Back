@@ -40,7 +40,7 @@ public class ProfileApi {
 		profileResponseDto.setUsername(user.getUsername());
 		profileResponseDto.setComment(user.getComment());
 		profileResponseDto.setAge(user.getAge());
-		profileResponseDto.setGender(user.isGender());
+		profileResponseDto.setGender(user.getGender());
 		profileResponseDto.setBirth(user.getBirth());
 		
 		//사용자 위시리스트

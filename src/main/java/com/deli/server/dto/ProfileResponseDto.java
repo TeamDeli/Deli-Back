@@ -18,7 +18,7 @@ public class ProfileResponseDto {
 	private String username;
 	private String comment;
 	private int age;
-	private boolean gender;
+	private String gender;
 	private String birth;
 	private List friends; //username 배열에 담기
 	private List wishList;

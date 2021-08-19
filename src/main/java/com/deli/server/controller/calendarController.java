@@ -46,8 +46,7 @@ public class calendarController {
 			anniversaryrepository.deleteById(id);
 		}catch(EmptyResultDataAccessException e){
 			return "삭제실패했습니다.";
-		}
-		
+		}	
 		return "삭제";
 	}
 }

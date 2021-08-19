@@ -41,5 +41,4 @@ public class Anniversary {
 	@Column(nullable = true, length = 30)
 	private String color;
 	
-	
 }

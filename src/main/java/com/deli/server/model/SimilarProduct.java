@@ -1,14 +1,11 @@
 package com.deli.server.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 import lombok.Data;
 
 // Member와 같은 기능
@@ -20,14 +17,14 @@ public class SimilarProduct {
 	 private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="Product_ID")
+	@JoinColumn(name="Product_ID")   // 일대다 관계에서 필수 선언
 	private Product product;
-	
+	/*
 	public void setProduct(Product product) {
 		this.product=product;
 		
-		if(!product.getSimilarProducts().contains(this)) {
-			product.getSimilarProducts().add( this);
+		if(!product.getSimilarProduct().contains(this)) {
+			product.getSimilarProduct().add( this);
 		}
-	}
+	}*/
 }

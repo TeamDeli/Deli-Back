@@ -49,6 +49,7 @@ public class ProfileApi {
 		for (int i=0; i<4; i++) {
 			productList.add(wishList.get(i).getProduct());
 		}
+		System.out.println(productList);
 		profileResponseDto.setWishList(productList);
 		
 		//사용자 친구
@@ -60,11 +61,7 @@ public class ProfileApi {
 		}
 		profileResponseDto.setFriends(friendName);
 		
-		
 		return new ResponseEntity<>(profileResponseDto, HttpStatus.OK); 
 	}
-
-
-	
 }
 

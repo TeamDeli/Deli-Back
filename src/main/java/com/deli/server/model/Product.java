@@ -65,7 +65,9 @@ public class Product {
 	@Column(nullable = false)
 	private String imageUrl;
 	
-	@OneToMany(mappedBy="product")
+	/*
+	@OneToMany()
+	@JoinColumn(name="Product_ID")
 	private List<SimilarProduct> similarProducts;
 	
 	public void addSimilarProduct(SimilarProduct similarProduct) {
@@ -74,7 +76,7 @@ public class Product {
 		if(similarProduct.getProduct()!=this) {
 			similarProduct.setProduct(this);
 		}
-	}
+	}*/
 	
 	/*
 	@ManyToOne

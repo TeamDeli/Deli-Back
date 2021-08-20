@@ -18,7 +18,6 @@ public class WishList {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	//private int id로 바꿔주기 -> user 객체는 필요 없음
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "user_id")
 	private User user;

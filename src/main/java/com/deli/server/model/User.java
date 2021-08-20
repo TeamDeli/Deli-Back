@@ -55,5 +55,4 @@ public class User {
 	
 	@Column(nullable = true, length = 80)
 	private String comment;
-
 }

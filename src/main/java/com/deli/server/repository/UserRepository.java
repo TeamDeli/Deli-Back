@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.deli.server.model.User;
 
+@Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
-
+	
 }
-

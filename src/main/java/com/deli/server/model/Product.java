@@ -15,12 +15,18 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.DynamicInsert;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -61,11 +67,18 @@ public class Product {
 	@Column(nullable = false)
 	private String imageUrl;
 	
-	@ManyToOne
-    @JoinColumn
-    private Product similarProducts = this;
+    @Column(nullable = false)
+    private String imageUrl;
 
-    @OneToMany(mappedBy = "similarProducts")
-    private List<Product> similarProductList = new ArrayList<Product>();
-    
+    @OneToMany(mappedBy="product")
+    @JsonIgnore
+    private List<SimilarProduct> similarProducts;
+
+    public void addSimilarProduct(SimilarProduct similarProduct) {
+        this.similarProducts.add(similarProduct);
+
+        if(similarProduct.getProduct()!=this) {
+            similarProduct.setProduct(this);
+        }
+    }
 }

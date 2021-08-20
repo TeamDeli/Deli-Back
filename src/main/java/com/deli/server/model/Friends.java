@@ -12,8 +12,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class WishList {
-	
+public class Friends {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -23,6 +22,6 @@ public class WishList {
 	private User user;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name = "product_id")
-	private Product product;
+	@JoinColumn(name = "friend_id")
+	private User friend;
 }

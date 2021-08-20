@@ -32,6 +32,9 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@Column(nullable = false, length = 10)
+	private int age;
+	
 	@Column(nullable = false, length = 30, unique = true)
 	private String email;
 	
@@ -44,22 +47,12 @@ public class User {
 	@Column(nullable = true)
 	private String image;
 	
-	@Column(nullable = false, length = 100)
-	private boolean gender;
+	@Column(nullable = false, length = 10)
+	private String gender;
 	
 	@Column(nullable = false, length = 100)
 	private String birth;
 	
 	@Column(nullable = true, length = 80)
 	private String comment;
-	
-	@ManyToOne
-    @JoinColumn
-    private User friends = this;
-
-    @OneToMany(mappedBy = "friends")
-	@Column(nullable = true)
-    private List<User> friendList = new ArrayList<User>();
-    
-
 }

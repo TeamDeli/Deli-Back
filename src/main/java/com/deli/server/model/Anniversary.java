@@ -14,6 +14,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,14 +32,13 @@ public class Anniversary {
 	@Column(nullable = false, length = 20)
 	private String title;
 	
-	@Column(nullable = false, length = 10)
-	private String startDate;
+	@Column(nullable = false, length = 30)
+	private String start;
 	
-	@Column(nullable = false, length = 10)
-	private String endDate;
+	@Column(nullable = true, length = 30)
+	private String end;
 	
-	@Column(nullable = false, length = 10)
-	private String Color;
-	
+	@Column(nullable = true, length = 30)
+	private String color;
 	
 }

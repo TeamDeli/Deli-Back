@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.deli.server.model.Anniversary;
-import com.deli.server.repository.AnniversaryRepository;
+import com.deli.server.repository.AnniversaryRepository2;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 public class calendarController {
 	
 	@Autowired
-	private AnniversaryRepository anniversaryrepository;
+	private AnniversaryRepository2 anniversaryrepository;
 	
 	@CrossOrigin
 	@GetMapping(value="/get") //친구 캘린더(user_id)는 다시 공부 후 구현

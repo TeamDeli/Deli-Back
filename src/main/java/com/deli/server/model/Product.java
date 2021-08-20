@@ -10,17 +10,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.DynamicInsert;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -29,6 +35,7 @@ import lombok.NoArgsConstructor;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "Product_ID")
 	private int id;
 	
 	@Column(nullable = false, length = 30)
@@ -38,7 +45,7 @@ public class Product {
 	private int star;
 	
 	@Column(nullable = false)
-	private int gender;
+	private String gender;
 	
 	@Column(nullable = false)
 	private int age;
@@ -57,12 +64,19 @@ public class Product {
 	
 	@Column(nullable = true)
 	private int price;
-	
-	@ManyToOne
-    @JoinColumn
-    private Product similarProducts = this;
 
-    @OneToMany(mappedBy = "similarProducts")
-    private List<Product> similarProductList = new ArrayList<Product>();
-    
+	@Column(nullable = false)
+	private String imageUrl;
+
+    @OneToMany(mappedBy="product")
+    @JsonIgnore
+    private List<SimilarProduct> similarProducts;
+
+    public void addSimilarProduct(SimilarProduct similarProduct) {
+        this.similarProducts.add(similarProduct);
+
+        if(similarProduct.getProduct()!=this) {
+            similarProduct.setProduct(this);
+        }
+    }
 }

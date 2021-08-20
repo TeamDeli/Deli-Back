@@ -10,20 +10,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.DynamicInsert;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-// 참고 1) https://jacojang.github.io/jpa/java/hibernate/2016/12/27/jpa-chapter6-%EB%8B%A4%EC%96%91%ED%95%9C_%EC%97%B0%EA%B4%80%EA%B4%80%EA%B3%84_%EB%A7%A4%ED%95%91.html
-// 참고 2) https://victorydntmd.tistory.com/208
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -61,34 +64,19 @@ public class Product {
 	
 	@Column(nullable = true)
 	private int price;
-	
+
 	@Column(nullable = false)
 	private String imageUrl;
-	
-	/*
-	@OneToMany()
-	@JoinColumn(name="Product_ID")
-	private List<SimilarProduct> similarProducts;
-	
-	public void addSimilarProduct(SimilarProduct similarProduct) {
-		this.similarProducts.add(similarProduct);
-		
-		if(similarProduct.getProduct()!=this) {
-			similarProduct.setProduct(this);
-		}
-	}*/
-	
-	/*
-	@ManyToOne
-    @JoinColumn
-    private Product similarProducts = this;
 
-    @OneToMany(mappedBy = "similarProducts")
-    private List<Product> similarProductList = new ArrayList<Product>();
-    
-    public void addSimmilarProduct(Product product) {
-    	this.similarProductList.add(this);
+    @OneToMany(mappedBy="product")
+    @JsonIgnore
+    private List<SimilarProduct> similarProducts;
+
+    public void addSimilarProduct(SimilarProduct similarProduct) {
+        this.similarProducts.add(similarProduct);
+
+        if(similarProduct.getProduct()!=this) {
+            similarProduct.setProduct(this);
+        }
     }
-    */
-    
 }

@@ -33,12 +33,14 @@ public class ProfileService {
 	}
 	
 	//친구리스트 가져오기
+	@Transactional
 	public List getFriendList(int id) {
 		List<Friends> friendList = (List<Friends>) friendRepository.findByUserId(id);
 		return friendList;
 	}
 	
 	//위시리스트 가져오기
+	@Transactional
 	public List getWishList(int id) {
 		List<WishList> wishList = (List<WishList>) wishListRepository.findByUserId(id);
 		return wishList;

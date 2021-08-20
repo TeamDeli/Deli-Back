@@ -28,7 +28,6 @@ public class ProductService {
 
     @Transactional
     public List<ProductListDto> searchPosts(String keyword) {
-        List<ProductListDto> productList = productRepository.findByProductnameContaining(keyword);
-        return productList;
+        return productRepository.findByProductnameContaining(keyword);
     }
 }

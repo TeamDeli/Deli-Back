@@ -45,7 +45,7 @@ public class Product {
 	private int star;
 	
 	@Column(nullable = false)
-	private String gender;
+	private int gender;
 	
 	@Column(nullable = false)
 	private int age;

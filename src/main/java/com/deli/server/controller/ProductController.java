@@ -29,11 +29,6 @@ public class ProductController {
 	@CrossOrigin(origins = "*")
 	@PostMapping("/getProducts")
 	public ResponseEntity<?> searchMember(@RequestBody ProductSearchCondition condition){
-		System.out.println(condition.getGender());
-		System.out.println(condition.getAge());
-		System.out.println(condition.getPrice());
-		System.out.println(condition.getPrice().get(0));
-		System.out.println(condition.getPrice().get(1));
 		List<ProductListDto> result = productRepository.search(condition);
 		System.out.println(result);
 		return new ResponseEntity<List<ProductListDto>>(result, HttpStatus.OK);

@@ -9,4 +9,3 @@ import com.deli.server.model.WishList;
 public interface WishListRepository extends JpaRepository<WishList, Integer>{
 	List<WishList> findByUserId(int user_id);
 }
-

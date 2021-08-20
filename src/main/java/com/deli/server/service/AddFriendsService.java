@@ -28,7 +28,7 @@ public class AddFriendsService {
 	
 	//위시리스트 가져오기
 	public List<WishList> getWishList(int id) {
-		List<WishList> wishList = (List<WishList>) wishListRepository.findByUserId(id);
+		List<WishList> wishList = wishListRepository.findByUserId(id);
 		return wishList;
 	}
 }

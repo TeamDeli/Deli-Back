@@ -17,6 +17,5 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FriendsResponseDto {
 
-	HttpStatus status;
 	private List<User> allUserProfiles;
 }

@@ -45,7 +45,7 @@ public class User {
 	private String image;
 	
 	@Column(nullable = false, length = 100)
-	private boolean gender;
+	private String gender;
 	
 	@Column(nullable = false, length = 100)
 	private String birth;
@@ -53,13 +53,4 @@ public class User {
 	@Column(nullable = true, length = 80)
 	private String comment;
 	
-	@ManyToOne
-    @JoinColumn
-    private User friends = this;
-
-    @OneToMany(mappedBy = "friends")
-	@Column(nullable = true)
-    private List<User> friendList = new ArrayList<User>();
-    
-
 }

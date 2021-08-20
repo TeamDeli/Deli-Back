@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.DynamicInsert;
@@ -25,6 +24,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -35,6 +35,7 @@ import lombok.ToString;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "Product_ID")
 	private int id;
 	
 	@Column(nullable = false, length = 30)
@@ -44,7 +45,7 @@ public class Product {
 	private int star;
 	
 	@Column(nullable = false)
-	private int gender;
+	private String gender;
 	
 	@Column(nullable = false)
 	private int age;
@@ -66,9 +67,6 @@ public class Product {
 
 	@Column(nullable = false)
 	private String imageUrl;
-	
-    @Column(nullable = false)
-    private String imageUrl;
 
     @OneToMany(mappedBy="product")
     @JsonIgnore

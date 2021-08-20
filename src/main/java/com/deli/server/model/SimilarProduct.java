@@ -33,5 +33,4 @@ public class SimilarProduct {
             product.getSimilarProducts().add(this);
         }
     }
-
 }

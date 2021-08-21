@@ -55,3 +55,52 @@ AMAZON RDS
 - main: 완벽하게 완성된 기능들의 통합 브랜치
 - PR을 통한 코드 리뷰, 전체 팀원들에게 Approve를 받아야 Merge
 - 팀원 코드와 Conflict 난 경우 협의하면서 Resolve
+
+
+# API 명세서
+---------------------
+## 프로필 화면
+### Request-Header
+`"Content-Type": "application/json"`
+
+### Request-Params
+`"id": int`
+
+user 테이블의 id
+
+### Response-Body
+```
+{
+	"status": 200,
+	"data": {
+		"username": "기연",
+		"comment": "델리가 좋아요~",
+		"age":24,
+		"gender": 0,
+		"birth": "98.03.25",
+		"friends": ["기연", "소린", "경민", "주은", "태연", ... ],
+		"wishlist": [ //4개
+				{
+					"image": "image.jpeg",
+					"productname": "망고빙수",
+					"info": "망고빙수맛잇겟다"
+				},
+				{
+					"image": "image.jpeg",
+					"productname": "망고빙수",
+					"info": "망고빙수맛잇겟다"
+				},
+				{
+					"image": "image.jpeg",
+					"productname": "망고빙수",
+					"info": "망고빙수맛잇겟다"
+				},
+				{
+					"image": "image.jpeg",
+					"productname": "망고빙수",
+					"info": "망고빙수맛잇겟다"
+				},
+		]
+	}
+}
+```
